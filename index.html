@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+ 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<style>
+
+    /* General Styles */
+:root {
+    --background-color: #e0f7fa; /* Light mode background */
+    --text-color: #212121; /* Dark text color */
+    --primary-color: #1e90ff; /* Primary color for buttons */
+    --hover-color: #1c86ee; /* Hover color for buttons */
+    --container-bg: rgba(255, 255, 255, 0.9); /* Container background */
+    --input-bg: #ffffff; /* Input background */
+    --input-border: #ddd; /* Input border */
+    --footer-bg: rgba(255, 255, 255, 0.8); /* Footer background */
+  }
+  
+  [data-theme='dark'] {
+    --background-color: #303030; /* Dark mode background */
+    --text-color: #e0f7fa; /* Light text color */
+    --container-bg: rgba(45, 45, 45, 0.9); /* Dark container background */
+    --input-bg: #424242; /* Dark input background */
+    --input-border: #555; /* Dark input border */
+    --footer-bg: rgba(45, 45, 45, 0.8); /* Dark footer background */
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .container {
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    background-color: var(--container-bg);
+    transition: background-color 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 90vh; /* Ensure container takes up most of the screen */
+  }
+  
+  /* Header */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  header h1 {
+    font-size: 2em;
+    margin: 0;
+  }
+  
+  #themeToggle {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 1.5em;
+    transition: transform 0.3s;
+  }
+  
+  #themeToggle:hover {
+    transform: rotate(20deg);
+  }
+  
+  /* Weather Display */
+  #weatherDisplay {
+    background: var(--footer-bg);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: background 0.3s;
+    flex-grow: 1; /* Allow weather display to take up remaining space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  #temperature {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 2em;
+  }
+  
+  #weatherIcon {
+    width: 60px;
+    height: 60px;
+  }
+  
+  #tempValue {
+    margin: 0;
+  }
+  
+  #locationName {
+    margin: 10px 0 0;
+    font-size: 1.2em;
+  }
+  
+  /* Weather Form */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  input[type="text"] {
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid var(--input-border);
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    font-size: 1em;
+    transition: border-color 0.3s, background-color 0.3s;
+  }
+  
+  input[type="text"]:focus {
+    border-color: var(--primary-color);
+    outline: none;
+  }
+  
+  button {
+    padding: 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: var(--hover-color);
+  }
+  
+  /* Footer */
+  footer {
+    padding: 10px;
+    background-color: var(--footer-bg);
+    border-radius: 10px;
+    font-size: 0.9em;
+    transition: background-color 0.3s;
+  }
+  
+  footer p {
+    margin: 0;
+  }
+  
+  footer strong {
+    color: var(--primary-color);
+  }
+</style>
+
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <h1>Weather App</h1>
+      <button id="themeToggle">
+        <i class="fas fa-moon"></i>
+      </button>
+    </header>
+
+    <!-- Weather Display -->
+    <div id="weatherDisplay">
+      <div id="temperature">
+        <img id="weatherIcon" src="https://static.vecteezy.com/system/resources/previews/026/571/030/non_2x/weather-icon-with-sun-and-cloud-on-transparent-background-free-png.png" alt="Weather Icon">
+        <h2 id="tempValue">--°C</h2>
+      </div>
+      <p id="locationName">Enter a location to get the weather!</p>
+    </div>
+
+    <!-- Weather Form -->
+    <form id="weatherForm">
+      <input type="text" id="locationInput" placeholder="Enter a location (e.g., London)" required>
+      <button type="submit">Get Weather</button>
+    </form>
+
+    <!-- Footer -->
+    <footer>
+      <p><strong></strong></p>
+    </footer>
+  </div>
+  <script>
+
+    
+  </script>
+</body>
+</html>
